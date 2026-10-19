@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 const identities = [
@@ -17,9 +16,9 @@ const identities = [
     description:
       "Connecting with audiences through confident communication and engaging conversations.",
     images: [
-      "anchor1.jpg",
-      "anchor2.jpg",
-      "anchor3.jpg",
+      "/anchor1.jpg",
+      "/anchor2.jpg",
+      "/anchor3.jpg",
     ],
   },
   {
@@ -27,8 +26,8 @@ const identities = [
     description:
       "Engaging with social issues, public dialogue, and ideas that shape communities.",
     images: [
-      "politician1.jpg",
-      "politician2.jpg",
+      "/politician1.jpg",
+      "/politician2.jpg",
     ],
   },
   {
@@ -36,8 +35,8 @@ const identities = [
     description:
       "Sharing perspectives, communicating ideas, and expressing knowledge through writing.",
     images: [
-      "author1.jpg",
-      "author2.jpg",
+      "/author1.jpg",
+      "/author2.jpg",
     ],
   },
   {
@@ -45,9 +44,9 @@ const identities = [
     description:
       "Supporting meaningful causes, raising awareness, and encouraging positive change.",
     images: [
-      "advocate1.jpg",
-      "advocate2.jpg",
-      "advocate3.jpg",
+      "/advocate1.jpg",
+      "/advocate2.jpg",
+      "/advocate3.jpg",
     ],
   },
   {
@@ -144,7 +143,7 @@ function ImageSlider({ images, title }) {
 
 function WhoAmI() {
   return (
-    <section id="about" className="py-20 text-white sm:py-28">
+    <section id="whoami" className="py-20 text-white sm:py-28">
       <div className="mx-auto mb-14 max-w-2xl text-center">
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-emerald-400">
           Beyond a Single Title

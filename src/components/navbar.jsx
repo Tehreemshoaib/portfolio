@@ -5,15 +5,12 @@ function Navbar() {
   const [experienceOpen, setExperienceOpen] = useState(false);
 
   const links = [
-    { name: "Home", id: "home" },
-    { name: "Who Am I", id: "whoami" },
-    { name: "My Journey", id: "my-journey" },
-    { name: "Experiences", id: "experiences" },
-    { name: "Portfolio", id: "portfolio" },
-    { name: "Pricing", id: "pricing" },
-    { name: "Blog", id: "blog" },
-    { name: "Contact", id: "contact" },
-  ];
+  { name: "Home", id: "home", path: "/" },
+  { name: "Who Am I", id: "whoami", path: "/#whoami" },
+  { name: "My Journey", id: "/#my-journey" },
+  { name: "Experiences", id: "experiences" },
+  { name: "Contact", id: "/#contact" },
+];
 
   const experienceItems = [
   {
@@ -21,16 +18,16 @@ function Navbar() {
     path: "/aadliyaat",
   },
   {
-    name: "Leadership Roles",
-    path: null,
+    name: "Businesses",
+    path: "/businesses",
   },
   {
-    name: "Speaking Engagements",
-    path: null,
+    name: "AdilCast",
+    path: "/adilcast",
   },
   {
-    name: "Achievements",
-    path: null,
+    name: "Media & Podcasts",
+    path: "/media&podcasts",
   },
 ];
 
@@ -43,12 +40,18 @@ function Navbar() {
     <>
       <header className="relative z-50 flex items-center justify-between">
         <a
-          href="#home"
-          onClick={closeMenu}
-          className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
-        >
-          Adil Ali
-        </a>
+  href="#home"
+  onClick={() => {
+    closeMenu();
+    document.getElementById("home")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
+  className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
+>
+  Adil Ali
+</a>
 
         <button
           type="button"
@@ -96,19 +99,21 @@ function Navbar() {
       >
         <div className="flex flex-col">
           {links.map((link, index) => (
-            <div
-              key={link.id}
-              onMouseEnter={() => {
-                if (link.id === "experiences") {
-                  setExperienceOpen(true);
-                }
-              }}
-              onMouseLeave={() => {
-                if (link.id === "experiences") {
-                  setExperienceOpen(false);
-                }
-              }}
-            >
+            
+<div
+  key={link.id}
+  onMouseEnter={() => {
+    if (link.id === "experiences" && menuOpen) {
+      setExperienceOpen(true);
+    }
+  }}
+  onMouseLeave={() => {
+    if (link.id === "experiences") {
+      setExperienceOpen(false);
+    }
+  }}
+>
+
               {link.id === "experiences" ? (
                 <>
                   {/* Experiences dropdown trigger */}
@@ -174,7 +179,7 @@ function Navbar() {
                 </>
               ) : (
                 <a
-                  href={`#${link.id}`}
+                  href={link.path || `#${link.id}`}
                   tabIndex={menuOpen ? 0 : -1}
                   onClick={closeMenu}
                   style={{

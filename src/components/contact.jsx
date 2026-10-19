@@ -1,14 +1,12 @@
-
 function Contact() {
   return (
     <section id="contact" className="py-20 sm:py-28">
       <div className="mx-auto max-w-7xl">
-
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
 
           {/* LEFT SIDE */}
           <div className="lg:pr-8">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#b9a4ff]">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#34d399]">
               Get In Touch
             </p>
 
@@ -16,7 +14,7 @@ function Contact() {
               Let's Start a
               <br />
               Conversation
-              <span className="text-[#b9a4ff]">.</span>
+              <span className="text-[#34d399]">.</span>
             </h2>
 
             <p className="mt-6 max-w-md text-base leading-8 text-gray-400">
@@ -30,7 +28,7 @@ function Contact() {
               </p>
 
               <p className="mt-2 text-xl font-medium text-white">
-                Reach Out <span className="text-[#b9a4ff]">↗</span>
+                Reach Out <span className="text-[#34d399]">↗</span>
               </p>
             </div>
           </div>
@@ -59,7 +57,7 @@ function Contact() {
                   name="name"
                   placeholder="Enter your name"
                   required
-                  className="w-full rounded-xl border border-white/10 bg-[#232a34] px-4 py-3.5 text-sm text-white placeholder-gray-500 outline-none transition focus:border-[#b9a4ff] focus:ring-1 focus:ring-[#b9a4ff]"
+                  className="w-full rounded-xl border border-white/10 bg-[#232a34] px-4 py-3.5 text-sm text-white placeholder-gray-500 outline-none transition focus:border-[#34d399] focus:ring-1 focus:ring-[#34d399]"
                 />
               </div>
 
@@ -78,7 +76,7 @@ function Contact() {
                   name="email"
                   placeholder="Enter your email address"
                   required
-                  className="w-full rounded-xl border border-white/10 bg-[#232a34] px-4 py-3.5 text-sm text-white placeholder-gray-500 outline-none transition focus:border-[#b9a4ff] focus:ring-1 focus:ring-[#b9a4ff]"
+                  className="w-full rounded-xl border border-white/10 bg-[#232a34] px-4 py-3.5 text-sm text-white placeholder-gray-500 outline-none transition focus:border-[#34d399] focus:ring-1 focus:ring-[#34d399]"
                 />
               </div>
 
@@ -97,14 +95,14 @@ function Contact() {
                   rows={4}
                   placeholder="Write your message here..."
                   required
-                  className="w-full resize-y rounded-xl border border-white/10 bg-[#232a34] px-4 py-3.5 text-sm text-white placeholder-gray-500 outline-none transition focus:border-[#b9a4ff] focus:ring-1 focus:ring-[#b9a4ff]"
+                  className="w-full resize-y rounded-xl border border-white/10 bg-[#232a34] px-4 py-3.5 text-sm text-white placeholder-gray-500 outline-none transition focus:border-[#34d399] focus:ring-1 focus:ring-[#34d399]"
                 />
               </div>
 
               {/* Button */}
               <button
                 type="submit"
-                className="group flex w-full items-center justify-center gap-3 rounded-xl bg-[#b9a4ff] px-6 py-4 font-semibold text-[#232a34] transition duration-300 hover:bg-white"
+                className="group flex w-full items-center justify-center gap-3 rounded-xl bg-[#34d399] px-6 py-4 font-semibold text-[#232a34] transition duration-300 hover:bg-white"
               >
                 Send Message
                 <span className="transition-transform duration-300 group-hover:translate-x-1">

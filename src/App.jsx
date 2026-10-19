@@ -6,6 +6,9 @@ import WhoAmI from "./components/whoami";
 import Timeline from "./components/timeline";
 import Contact from "./components/contact";
 import Aadliyaat from "./pages/aadliyaat";
+import Footer from "./components/footer";
+import Businesses from "./pages/businesses";
+import AdilCast from "./pages/adilcast";
 
 function Home() {
   return (
@@ -14,6 +17,7 @@ function Home() {
       <WhoAmI />
       <Timeline />
       <Contact />
+      <Footer />
     </>
   );
 }
@@ -28,13 +32,14 @@ function App() {
           </div>
 
           <Routes>
-            <Route path="/" element={<Home />} />
+  <Route path="/" element={<Home />} />
 
-            <Route
-              path="/aadliyaat"
-              element={<Aadliyaat />}
-            />
-          </Routes>
+  <Route path="/businesses" element={<Businesses />} />
+
+  <Route path="/aadliyaat" element={<Aadliyaat />} />
+
+  <Route path="/adilcast" element={<AdilCast />} />
+</Routes>
         </div>
       </main>
     </BrowserRouter>
