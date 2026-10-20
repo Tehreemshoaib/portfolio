@@ -1,0 +1,54 @@
+.nature-reveal {
+  --nature-font-size: 34px; /* final text size */
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 360px;
+  height: 60vh;
+  max-height: 720px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.nature-reveal__image {
+  position: absolute;
+  inset: 0;
+  background-image: var(--nature-image);
+  background-size: cover;
+  background-position: center;
+  opacity: 1; /* JS animates this to 1 */
+}
+
+/* White layer: black text becomes a "hole" showing the image */
+.nature-reveal__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #fff;
+  mix-blend-mode: screen;
+  opacity: 0; /* JS animates this to 1 */
+}
+
+.nature-reveal__title {
+  margin: 0;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--nature-font-size);
+  font-weight: 999;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@media (max-width: 480px) {
+  .nature-reveal {
+    min-height: 260px;
+    height: 42vh;
+  }
+}
