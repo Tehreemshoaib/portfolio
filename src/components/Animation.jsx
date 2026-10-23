@@ -1,9 +1,10 @@
+
 import { useEffect, useRef } from "react";
 import "../assets/animation.css";
 
 export default function Animation({
-  image = "/images/nature.jpg",
-  title = "NATURE",
+  image = "/podcast-studio.jpg",
+  title = "ADILCAST",
   className = "",
 }) {
   const sectionRef = useRef(null);
@@ -12,65 +13,99 @@ export default function Animation({
   const textRef = useRef(null);
 
   useEffect(() => {
+    const imageElement = imageRef.current;
+    const overlayElement = overlayRef.current;
+    const textElement = textRef.current;
+    const sectionElement = sectionRef.current;
+
+    if (
+      !imageElement ||
+      !overlayElement ||
+      !textElement ||
+      !sectionElement
+    ) {
+      return;
+    }
+
     const animations = [
-      imageRef.current.animate(
+      imageElement.animate(
         [
           { opacity: 0, transform: "scale(1.01)" },
           { opacity: 1, transform: "scale(1)" },
         ],
-        { duration: 400, easing: "ease-out", fill: "both" },
+        {
+          duration: 400,
+          easing: "ease-out",
+          fill: "both",
+        },
       ),
 
-      overlayRef.current.animate([{ opacity: 0 }, { opacity: 1 }], {
-        duration: 100,
-        delay: 1500,
-        easing: "ease-out",
-        fill: "both",
-      }),
+      overlayElement.animate(
+        [{ opacity: 0 }, { opacity: 1 }],
+        {
+          duration: 100,
+          delay: 1500,
+          easing: "ease-out",
+          fill: "both",
+        },
+      ),
 
-      textRef.current.animate(
+      textElement.animate(
         [
           { transform: "scale(40)", offset: 0 },
           { transform: "scale(6)", offset: 0.4 },
           { transform: "scale(1.5)", offset: 0.8 },
           { transform: "scale(1)", offset: 1 },
         ],
-        { duration: 3000, delay: 1000, easing: "ease-in-out", fill: "both" },
+        {
+          duration: 3000,
+          delay: 1000,
+          easing: "ease-in-out",
+          fill: "both",
+        },
       ),
     ];
 
-    // Shuru mein sab pause: animation viewport mein aane ka intezar karegi
-    animations.forEach((a) => a.pause());
+    animations.forEach((animation) => animation.pause());
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          animations.forEach((a) => a.play());
-          observer.disconnect(); // sirf ek baar chalaye
+          animations.forEach((animation) => animation.play());
+          observer.disconnect();
         }
       },
-      { threshold: 0.4 }, // 40% section nazar aaye tab start
+      { threshold: 0.4 },
     );
 
-    observer.observe(sectionRef.current);
+    observer.observe(sectionElement);
 
     return () => {
       observer.disconnect();
-      animations.forEach((a) => a.cancel());
+      animations.forEach((animation) => animation.cancel());
     };
   }, [image, title]);
 
   return (
     <section
       ref={sectionRef}
-      className={`nature-reveal ${className}`}
-      style={{ "--nature-image": `url("${image}")` }}
+      className={`adilcast-reveal ${className}`}
+      style={{ "--adilcast-image": `url("${image}")` }}
       aria-label={title}
     >
-      <div ref={imageRef} className="nature-reveal__image" />
+      <div
+        ref={imageRef}
+        className="adilcast-reveal__image"
+      />
 
-      <div ref={overlayRef} className="nature-reveal__overlay">
-        <h2 ref={textRef} className="nature-reveal__title">
+      <div
+        ref={overlayRef}
+        className="adilcast-reveal__overlay"
+      >
+        <h2
+          ref={textRef}
+          className="adilcast-reveal__title"
+        >
           {title}
         </h2>
       </div>

@@ -1,5 +1,5 @@
 import "./AdilCast.css";
-
+import Animation from "../components/Animation";
 const episodes = [
   
 {
@@ -88,6 +88,7 @@ function AdilCast() {
           <span className="adilcast-dot">●</span>
           <span>PERSPECTIVES</span>
         </div>
+        
       </section>
 
       <section id="episodes" className="adilcast-intro">
@@ -156,5 +157,4 @@ function AdilCast() {
     </main>
   );
 }
-
 export default AdilCast;

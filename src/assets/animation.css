@@ -1,5 +1,6 @@
-.nature-reveal {
-  --nature-font-size: 34px; /* final text size */
+
+.adilcast-reveal {
+  --adilcast-font-size: clamp(3.3rem, 14.2vw, 13rem);
 
   position: relative;
   isolation: isolate;
@@ -8,47 +9,52 @@
   height: 60vh;
   max-height: 720px;
   overflow: hidden;
-  background: #fff;
+  background: #232a34;
 }
 
-.nature-reveal__image {
+.adilcast-reveal__image {
   position: absolute;
   inset: 0;
-  background-image: var(--nature-image);
+  background-image: var(--adilcast-image);
   background-size: cover;
-  background-position: center;
-  opacity: 1; /* JS animates this to 1 */
+  background-position: center 45%;
+  background-repeat: no-repeat;
+  opacity: 0;
 }
 
-/* White layer: black text becomes a "hole" showing the image */
-.nature-reveal__overlay {
+/* The dark overlay and text reveal */
+.adilcast-reveal__overlay {
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #fff;
+  background: #232a34;
   mix-blend-mode: screen;
-  opacity: 0; /* JS animates this to 1 */
+  opacity: 0;
 }
 
-.nature-reveal__title {
+.adilcast-reveal__title {
   margin: 0;
   color: #000;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: var(--nature-font-size);
-  font-weight: 999;
-  line-height: 1;
-  letter-spacing: -0.04em;
+  font-size: var(--adilcast-font-size);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.07em;
   text-transform: uppercase;
   white-space: nowrap;
   transform-origin: center;
   will-change: transform;
 }
 
-@media (max-width: 480px) {
-  .nature-reveal {
+@media (max-width: 640px) {
+  .adilcast-reveal {
     min-height: 260px;
     height: 42vh;
+  }
+
+  .adilcast-reveal__title {
+    letter-spacing: -0.08em;
   }
 }

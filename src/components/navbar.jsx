@@ -1,221 +1,169 @@
 import { useState } from "react";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [journeyOpen, setJourneyOpen] = useState(false);
   const [experienceOpen, setExperienceOpen] = useState(false);
 
   const links = [
-  { name: "Home", id: "home", path: "/" },
-  { name: "Who Am I", id: "whoami", path: "/#whoami" },
-  { name: "My Journey", id: "/#my-journey" },
-  { name: "Experiences", id: "experiences" },
-  { name: "Contact", id: "/#contact" },
-];
+    { name: "Home", path: "/" },
+    { name: "Who Am I", path: "/#whoami" },
+    { name: "My Journey", dropdown: "journey" },
+    { name: "Experiences", dropdown: "experience" },
+    { name: "Contact", path: "/#contact" },
+  ];
+
+  const journeyItems = [
+    { name: "As a Human", path: "/#as-a-human" },
+    { name: "As an Advocate", path: "/#as-an-advocate" },
+    { name: "As an author", path: "/#as-an-author" },
+    { name: "As ", path: "/#achievements" },
+  ];
 
   const experienceItems = [
-  {
-    name: "Aadliyaat",
-    path: "/aadliyaat",
-  },
-  {
-    name: "Businesses",
-    path: "/businesses",
-  },
-  {
-    name: "AdilCast",
-    path: "/adilcast",
-  },
-  {
-    name: "Media & Podcasts",
-    path: "/media&podcasts",
-  },
-];
+    { name: "Aadliyaat", path: "/aadliyaat" },
+    { name: "Businesses", path: "/businesses" },
+    { name: "AdilCast", path: "/adilcast" },
+    { name: "Media & Podcasts", path: "/media&podcasts" },
+  ];
 
-  const closeMenu = () => {
-    setMenuOpen(false);
+  const closeDropdowns = () => {
+    setJourneyOpen(false);
     setExperienceOpen(false);
   };
 
   return (
-    <>
-      <header className="relative z-50 flex items-center justify-between">
-        <a
-  href="#home"
-  onClick={() => {
-    closeMenu();
-    document.getElementById("home")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }}
-  className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
->
-  Adil Ali
-</a>
-
-        <button
-          type="button"
-          onClick={() => {
-            setMenuOpen((open) => !open);
-            setExperienceOpen(false);
-          }}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          className="relative z-[70] flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full border border-white/20 text-white transition hover:border-emerald-400 hover:bg-white/10"
-        >
-          <span
-            className={`h-0.5 w-6 bg-white transition-all duration-300 ${
-              menuOpen ? "translate-y-2 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-white transition-all duration-300 ${
-              menuOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-white transition-all duration-300 ${
-              menuOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          />
-        </button>
-      </header>
-
-      {/* Background overlay */}
-      <div
-        onClick={closeMenu}
-        className={`fixed inset-0 z-[55] bg-black/60 transition-opacity duration-500 ${
-          menuOpen ? "visible opacity-100" : "invisible opacity-0"
-        }`}
-      />
-
-      {/* Left sliding menu */}
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#232a34]/95 text-white shadow-lg backdrop-blur-md">
       <nav
         aria-label="Main navigation"
-        aria-hidden={!menuOpen}
-        className={`fixed left-0 top-0 z-[60] flex h-dvh w-[min(85vw,400px)] flex-col overflow-y-auto border-r border-white/10 bg-[#232a34] px-8 pb-10 pt-24 shadow-2xl transition-transform duration-500 ease-in-out ${
-          menuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5 sm:px-10 lg:px-16"
       >
-        <div className="flex flex-col">
-          {links.map((link, index) => (
-            
-<div
-  key={link.id}
-  onMouseEnter={() => {
-    if (link.id === "experiences" && menuOpen) {
-      setExperienceOpen(true);
-    }
-  }}
-  onMouseLeave={() => {
-    if (link.id === "experiences") {
-      setExperienceOpen(false);
-    }
-  }}
->
+        {/* Logo */}
+        <a
+          href="/"
+          onClick={closeDropdowns}
+          className="shrink-0 text-2xl font-bold tracking-tight transition-colors hover:text-emerald-400 sm:text-3xl"
+        >
+          Adil Ali
+        </a>
 
-              {link.id === "experiences" ? (
-                <>
-                  {/* Experiences dropdown trigger */}
-                  <button
-                    type="button"
-                    tabIndex={menuOpen ? 0 : -1}
-                    onClick={() => setExperienceOpen((open) => !open)}
-                    aria-expanded={experienceOpen}
-                    className={`group flex w-full items-center justify-between border-b border-white/10 py-4 text-xl font-medium transition-all duration-300 hover:pl-3 ${
-                      menuOpen
-                        ? "translate-x-0 opacity-100"
-                        : "-translate-x-4 opacity-0"
-                    }`}
-                    style={{
-                      transitionDelay: menuOpen
-                        ? `${index * 50}ms`
-                        : "0ms",
-                    }}
-                  >
-                    <span className="text-white transition-colors group-hover:text-emerald-400">
-                      Experiences
-                    </span>
+        {/* Desktop navigation */}
+        <div className="hidden items-center gap-6 lg:flex xl:gap-8">
+          {links.map((link) => {
+            const isJourney = link.dropdown === "journey";
+            const isExperience = link.dropdown === "experience";
+            const isDropdown = isJourney || isExperience;
 
-                    <span className="text-sm text-emerald-400">
-                      {experienceOpen ? "⌃" : "⌄"}
-                    </span>
-                  </button>
+            const isOpen = isJourney
+              ? journeyOpen
+              : experienceOpen;
 
-                  {/* Experiences submenu */}
-                  <div
-                    className={`grid transition-[grid-template-rows,opacity] duration-300 ${
-                      experienceOpen
-                        ? "grid-rows-[1fr] opacity-100"
-                        : "grid-rows-[0fr] opacity-0"
-                    }`}
-                    aria-hidden={!experienceOpen}
-                  >
-                    <div className="overflow-hidden">
-                      <div className="border-b border-white/10 py-2 pl-4">
-                        {experienceItems.map((item) =>
-  item.path ? (
-    <a
-      key={item.name}
-      href={item.path}
-      tabIndex={menuOpen && experienceOpen ? 0 : -1}
-      onClick={closeMenu}
-      className="block border-l border-emerald-400/30 py-3 pl-4 text-base font-medium text-slate-300 transition-colors hover:border-emerald-400 hover:text-emerald-400"
-    >
-      {item.name}
-    </a>
-  ) : (
-    <span
-      key={item.name}
-      className="block cursor-default border-l border-white/10 py-3 pl-4 text-base font-medium text-slate-500"
-    >
-      {item.name}
-    </span>
-  )
-)}
-                      </div>
-                    </div>
-                  </div>
-                </>
-              ) : (
+            const setOpen = isJourney
+              ? setJourneyOpen
+              : setExperienceOpen;
+
+            const items = isJourney
+              ? journeyItems
+              : experienceItems;
+
+            if (!isDropdown) {
+              return (
                 <a
-                  href={link.path || `#${link.id}`}
-                  tabIndex={menuOpen ? 0 : -1}
-                  onClick={closeMenu}
-                  style={{
-                    transitionDelay: menuOpen
-                      ? `${index * 50}ms`
-                      : "0ms",
+                  key={link.name}
+                  href={link.path}
+                  onClick={closeDropdowns}
+                  className="whitespace-nowrap text-sm font-medium text-slate-300 transition-colors hover:text-emerald-400 xl:text-base"
+                >
+                  {link.name}
+                </a>
+              );
+            }
+
+            return (
+              <div
+                key={link.name}
+                className="relative"
+                onMouseEnter={() => {
+                  setOpen(true);
+                  if (isJourney) setExperienceOpen(false);
+                  else setJourneyOpen(false);
+                }}
+                onMouseLeave={() => setOpen(false)}
+              >
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen((open) => !open);
+                    if (isJourney) setExperienceOpen(false);
+                    else setJourneyOpen(false);
                   }}
-                  className={`group flex items-center justify-between border-b border-white/10 py-4 text-xl font-medium transition-all duration-300 hover:pl-3 hover:text-emerald-400 ${
-                    menuOpen
-                      ? "translate-x-0 opacity-100"
-                      : "-translate-x-4 opacity-0"
+                  aria-expanded={isOpen}
+                  className="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-300 transition-colors hover:text-emerald-400 xl:text-base"
+                >
+                  {link.name}
+                  <span className="text-xs text-emerald-400">
+                    {isOpen ? "⌃" : "⌄"}
+                  </span>
+                </button>
+
+                {/* Dropdown */}
+                <div
+                  className={`absolute left-0 top-full z-50 w-64 pt-4 ${
+                    isOpen ? "block" : "hidden"
                   }`}
                 >
-                  <span className="text-white transition-colors group-hover:text-emerald-400">
-                    {link.name}
-                  </span>
-
-                  <span className="text-sm text-emerald-400 opacity-0 transition group-hover:opacity-100">
-                    ↗
-                  </span>
-                </a>
-              )}
-            </div>
-          ))}
+                  <div className="overflow-hidden rounded-xl border border-white/10 bg-[#232a34] py-2 shadow-2xl">
+                    {items.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.path}
+                        onClick={closeDropdowns}
+                        className="block px-5 py-3 text-sm text-slate-300 transition-colors hover:bg-emerald-400/10 hover:text-emerald-400"
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Footer */}
-        <div className="mt-auto pt-10">
-          <div className="mb-4 h-px bg-white/10" />
-          <p className="text-sm text-slate-400">Adil Ali</p>
-          <p className="mt-1 text-xs tracking-wide text-slate-500">
-            Business · Advocacy · Public Service
-          </p>
+        {/* Mobile navigation: compact horizontal links */}
+        <div className="flex items-center gap-4 overflow-x-auto lg:hidden">
+          <a
+            href="/"
+            className="whitespace-nowrap text-sm text-slate-300 hover:text-emerald-400"
+          >
+            Home
+          </a>
+          <a
+            href="/#whoami"
+            className="whitespace-nowrap text-sm text-slate-300 hover:text-emerald-400"
+          >
+            Who Am I
+          </a>
+          <a
+            href="/#my-journey"
+            className="whitespace-nowrap text-sm text-slate-300 hover:text-emerald-400"
+          >
+            My Journey
+          </a>
+          <a
+            href="/#experiences"
+            className="whitespace-nowrap text-sm text-slate-300 hover:text-emerald-400"
+          >
+            Experiences
+          </a>
+          <a
+            href="/#contact"
+            className="whitespace-nowrap text-sm text-slate-300 hover:text-emerald-400"
+          >
+            Contact
+          </a>
         </div>
       </nav>
-    </>
+    </header>
   );
 }
 

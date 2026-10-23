@@ -9,7 +9,6 @@ import Aadliyaat from "./pages/aadliyaat";
 import Footer from "./components/footer";
 import Businesses from "./pages/businesses";
 import AdilCast from "./pages/adilcast";
-import Animation from "./components/Animation";
 
 function Home() {
   return (
@@ -18,7 +17,6 @@ function Home() {
       <WhoAmI />
       <Timeline />
       <Contact />
-      <Animation />
       <Footer />
     </>
   );
@@ -35,11 +33,8 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
-
             <Route path="/businesses" element={<Businesses />} />
-
             <Route path="/aadliyaat" element={<Aadliyaat />} />
-
             <Route path="/adilcast" element={<AdilCast />} />
           </Routes>
         </div>
