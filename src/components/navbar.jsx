@@ -13,10 +13,14 @@ function Navbar() {
   ];
 
   const journeyItems = [
-    { name: "As a Human", path: "/#as-a-human" },
-    { name: "As an Advocate", path: "/#as-an-advocate" },
-    { name: "As an author", path: "/#as-an-author" },
-    { name: "As ", path: "/#achievements" },
+    { name: "As a Human", path: "/as-a-human" },
+    { name: "As an Advocate", path: "/as-an-advocate" },
+    { name: "As an Author", path: "/as-an-author" },
+    { name: "As Corporate", path: "/as-corporate" },
+    { name: "As a Businessman", path: "/as-a-businessman" },
+    { name: "As a Journalist", path: "/as-a-journalist" },
+    { name: "As a Politician", path: "/as-a-politician" },
+    { name: "As a Socialist", path: "/as-a-socialist" },
   ];
 
   const experienceItems = [

@@ -1,15 +1,5 @@
 const businessSections = [
   {
-    name: "CodeNergy FZE",
-    number: "01",
-    description:
-      "Discover Codenergy, its vision, and the work behind the company. This space highlights its identity, purpose, and contribution to the business world.",
-    image: "/codenergy.png",
-    imageAlt: "Codenergy company",
-    imageSide: "left",
-    website: "https://codenergy.ae",
-  },
-  {
     name: "TechSynergy",
     number: "02",
     description:
@@ -18,6 +8,16 @@ const businessSections = [
     imageAlt: "TechSynergy company",
     imageSide: "right",
     website: "",
+  },
+  {
+    name: "CodeNergy FZE",
+    number: "01",
+    description:
+      "Discover Codenergy, its vision, and the work behind the company. This space highlights its identity, purpose, and contribution to the business world.",
+    image: "/codenergy.png",
+    imageAlt: "Codenergy company",
+    imageSide: "left",
+    website: "https://codenergy.ae",
   },
 ];
 
