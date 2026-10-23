@@ -9,6 +9,7 @@ import Aadliyaat from "./pages/aadliyaat";
 import Footer from "./components/footer";
 import Businesses from "./pages/businesses";
 import AdilCast from "./pages/adilcast";
+import AsAHuman from "./pages/asahuman";
 
 function Home() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/businesses" element={<Businesses />} />
             <Route path="/aadliyaat" element={<Aadliyaat />} />
             <Route path="/adilcast" element={<AdilCast />} />
+            <Route path="/as-a-human" element={<AsAHuman />} />
           </Routes>
         </div>
       </main>

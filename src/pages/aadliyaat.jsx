@@ -63,7 +63,7 @@ function Aadliyaat() {
 
             <h2 className="mb-6 max-w-lg text-3xl font-medium leading-snug sm:text-4xl">
               Where stories meet{" "}
-              <span className="text-emerald-400">the soul.</span>
+              <span className="text-emerald-400">the soul</span>
             </h2>
 
             <p className="mb-5 max-w-xl text-base leading-8 text-gray-300 sm:text-lg">
