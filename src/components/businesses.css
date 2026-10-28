@@ -1,0 +1,802 @@
+/* ==========================================
+   BUSINESSES PAGE — REFERENCE DESIGN
+========================================== */
+
+.businesses-page {
+  --page-bg: #232a34;
+  --green: #35d6a5;
+  --white: #f6f7fa;
+  --muted: #a3adbd;
+
+  width: 100%;
+  overflow: hidden;
+  background: var(--page-bg);
+  color: var(--white);
+  font-family: inherit;
+}
+
+.businesses-page *,
+.businesses-page *::before,
+.businesses-page *::after {
+  box-sizing: border-box;
+}
+
+.businesses-page h1,
+.businesses-page h2,
+.businesses-page p {
+  margin-top: 0;
+}
+
+.businesses-page a {
+  text-decoration: none;
+}
+
+.businesses-page p {
+  color: var(--muted);
+}
+
+/* Shared eyebrow */
+
+.businesses-page .business-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.25px;
+}
+
+.businesses-page .business-eyebrow i {
+  display: block;
+  width: 20px;
+  height: 1px;
+  flex-shrink: 0;
+  background: var(--green);
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.businesses-page .businesses-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  min-height: 450px;
+  padding: 65px 5%;
+  background: var(--page-bg);
+}
+
+.businesses-page .businesses-hero-copy {
+  max-width: 500px;
+}
+
+.businesses-page .businesses-hero h1 {
+  display: flex;
+  flex-direction: column;
+  margin: 23px 0 14px;
+  font-size: clamp(48px, 5.4vw, 68px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -3.5px;
+}
+
+.businesses-page .businesses-hero h1 span {
+  color: var(--green);
+}
+
+.businesses-page .businesses-hero-copy > p {
+  max-width: 500px;
+  margin-bottom: 25px;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.businesses-page .business-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  border: 1px solid rgba(53, 214, 165, 0.3);
+  border-radius: 30px;
+  background: rgba(53, 214, 165, 0.06);
+  color: #9aefd7;
+  font-size: 10px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.businesses-page .business-button:hover {
+  background: var(--green);
+  color: #10241e;
+  transform: translateY(-2px);
+}
+
+/* Right-side hero photo area */
+
+.businesses-page .businesses-hero-visual {
+  position: relative;
+  min-width: 0;
+  height: 320px;
+  padding: 7px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 17px;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.businesses-page .hero-photo-space {
+  width: 100%;
+  height: 100%;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+/* When you have a photo, use it as the background of
+   .hero-photo-space or add an img inside it. */
+
+.businesses-page .hero-photo-tag {
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  background: rgba(8, 24, 21, 0.85);
+  color: var(--green);
+  font-size: 7px;
+  letter-spacing: 0.45px;
+}
+
+.businesses-page .hero-photo-caption {
+  position: absolute;
+  right: 17px;
+  bottom: 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  background: rgba(28, 37, 47, 0.94);
+  text-align: right;
+}
+
+.businesses-page .hero-photo-caption small {
+  color: #9ca9b7;
+  font-size: 7px;
+  letter-spacing: 0.65px;
+}
+
+.businesses-page .hero-photo-caption strong {
+  font-size: 12px;
+}
+
+.businesses-page .hero-photo-caption strong span {
+  color: var(--green);
+}
+
+/* ==========================================
+   OVERVIEW STRIP
+========================================== */
+
+.businesses-page .businesses-overview {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 50px;
+  padding: 42px 5%;
+  background: #1b222c;
+}
+
+.businesses-page .overview-copy h2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 10px 0 9px;
+  font-size: clamp(22px, 2.5vw, 29px);
+  font-weight: 800;
+  line-height: 1.13;
+  letter-spacing: -0.8px;
+}
+
+.businesses-page .overview-copy h2 span {
+  color: var(--green);
+}
+
+.businesses-page .overview-copy > p {
+  max-width: 580px;
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.businesses-page .overview-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.businesses-page .overview-stat {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 0 17px;
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.businesses-page .stat-icon {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 3px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(53, 214, 165, 0.1);
+  color: var(--green);
+  font-size: 9px;
+}
+
+.businesses-page .overview-stat strong {
+  font-size: 21px;
+  line-height: 1.1;
+}
+
+.businesses-page .overview-stat .endless-stat {
+  font-size: clamp(15px, 1.8vw, 21px);
+}
+
+.businesses-page .overview-stat small {
+  color: #98a3b4;
+  font-size: 9px;
+}
+
+/* ==========================================
+   SHOWCASE AREA
+   Same charcoal background as the website
+========================================== */
+
+.businesses-page .businesses-showcases {
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+  padding: 60px 2% 65px;
+  background: var(--page-bg);
+}
+
+.businesses-page .business-showcase {
+  --accent: #4c8cff;
+  --accent-rgb: 76, 140, 255;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 35px;
+  width: 100%;
+  max-width: 1500px;
+  min-height: 380px;
+  margin: 0 auto;
+  padding: 38px 4.5%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  border-radius: 17px;
+  background: #0b0e13;
+}
+
+/* TechSynergy — restrained blue */
+
+.businesses-page .tech-showcase {
+  --accent: #4c8cff;
+  --accent-rgb: 76, 140, 255;
+
+  background:
+    radial-gradient(
+      ellipse at 76% 48%,
+      rgba(31, 75, 145, 0.12),
+      transparent 48%
+    ),
+    #080b10;
+  border-color: rgba(76, 140, 255, 0.12);
+}
+
+/* CodeNergy — restrained deep red */
+
+.businesses-page .code-showcase {
+  --accent: #ff454f;
+  --accent-rgb: 255, 69, 79;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 50%,
+      rgba(130, 25, 35, 0.17),
+      transparent 52%
+    ),
+    #0c0d12;
+  border-color: rgba(255, 69, 79, 0.13);
+}
+
+/* ==========================================
+   COMPANY TEXT
+========================================== */
+
+.businesses-page .showcase-copy {
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.businesses-page .showcase-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 23px;
+  color: #a8b5c7;
+  font-size: 8px;
+  letter-spacing: 0.45px;
+}
+
+.businesses-page .showcase-meta > strong {
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.businesses-page .showcase-meta .meta-line {
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.65;
+}
+
+.businesses-page .showcase-subcategory {
+  margin-bottom: 6px;
+  color: #8794a7;
+  font-size: 7px;
+  letter-spacing: 1.1px;
+}
+
+.businesses-page .showcase-title {
+  margin: 0 0 5px;
+  color: #f7f8fb;
+  font-size: clamp(34px, 4vw, 46px);
+  font-weight: 800;
+  letter-spacing: -1.8px;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.businesses-page .tech-showcase .showcase-title span {
+  color: var(--accent);
+}
+
+.businesses-page .code-showcase .showcase-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.businesses-page .code-showcase .showcase-title span {
+  color: var(--accent);
+}
+
+.businesses-page .showcase-tagline {
+  margin-bottom: 18px;
+  color: #c5cfdd;
+  font-size: 12px;
+}
+
+.businesses-page .showcase-description {
+  max-width: 500px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+/* Service chips */
+
+.businesses-page .showcase-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+
+.businesses-page .service-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 9px;
+  border: 1px solid rgba(var(--accent-rgb), 0.24);
+  border-radius: 6px;
+  background: rgba(var(--accent-rgb), 0.055);
+  color: #c4cede;
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+.businesses-page .service-pill svg {
+  color: var(--accent);
+  font-size: 9px;
+}
+
+/* Website button */
+
+.businesses-page .showcase-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 13px;
+  border: 1px solid var(--accent);
+  border-radius: 30px;
+  color: #f1f4f9;
+  font-size: 9px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.businesses-page .showcase-button svg {
+  color: var(--accent);
+}
+
+.businesses-page .showcase-button:hover {
+  background: var(--accent);
+  color: #080b10;
+  transform: translateY(-2px);
+}
+
+.businesses-page .showcase-button:hover svg {
+  color: #080b10;
+}
+
+/* ==========================================
+   IMAGE SPACES
+   Blank until you add your own pictures
+========================================== */
+
+.businesses-page .showcase-visual {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.businesses-page .company-logo-space {
+  width: 100%;
+  max-width: 240px;
+  height: 60px;
+  border-radius: 6px;
+  background: transparent;
+}
+
+/* Website preview placeholder */
+.businesses-page .company-website-space {
+  width: 100%;
+  height: 235px;
+  border: 1px solid rgba(var(--accent-rgb), 0.28);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.012);
+  box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.035);
+  transition: border-color 0.25s ease;
+}
+
+.businesses-page .company-website-space:hover {
+  border-color: rgba(var(--accent-rgb), 0.6);
+}
+
+/* ==========================================
+   CLOSING PANEL
+========================================== */
+
+.businesses-page .businesses-closing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 220px;
+  margin: 0 2% 70px;
+  padding: 42px 5%;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  border-radius: 17px;
+  background:
+    radial-gradient(
+      ellipse at 72% 45%,
+      rgba(40, 88, 110, 0.1),
+      transparent 55%
+    ),
+    #0d141d;
+}
+
+.businesses-page .closing-copy {
+  max-width: 660px;
+}
+
+.businesses-page .businesses-closing h2 {
+  margin: 12px 0 8px;
+  font-size: clamp(26px, 3.3vw, 37px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+}
+
+.businesses-page .businesses-closing h2 span {
+  color: var(--green);
+}
+
+.businesses-page .businesses-closing p {
+  max-width: 600px;
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.businesses-page .closing-button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 13px 8px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 30px;
+  color: #edf1f7;
+  font-size: 9px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.businesses-page .closing-button:hover {
+  border-color: var(--green);
+  transform: translateY(-2px);
+}
+
+.businesses-page .closing-button > span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(53, 214, 165, 0.13);
+  color: var(--green);
+}
+
+.businesses-page .closing-external-icon {
+  display: none;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 950px) {
+  .businesses-page .businesses-hero {
+    gap: 28px;
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+
+  .businesses-page .businesses-overview {
+    gap: 25px;
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+
+  .businesses-page .business-showcase {
+    gap: 22px;
+    padding-right: 3%;
+    padding-left: 3%;
+  }
+
+  .businesses-page .showcase-title {
+    font-size: clamp(28px, 3.5vw, 37px);
+  }
+
+  .businesses-page .company-website-space {
+    height: 175px;
+  }
+
+  .businesses-page .service-pill {
+    padding: 6px 7px;
+    font-size: 7px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 680px) {
+  .businesses-page .businesses-hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 50px 22px 35px;
+  }
+
+  .businesses-page .businesses-hero h1 {
+    font-size: clamp(46px, 12vw, 65px);
+  }
+
+  .businesses-page .businesses-hero-image {
+    min-height: 220px;
+  }
+
+  .businesses-page .businesses-hero-visual {
+    height: 235px;
+  }
+
+  .businesses-page .businesses-overview {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 30px 22px;
+  }
+
+  .businesses-page .overview-stats {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .businesses-page .overview-stat {
+    padding: 0 12px;
+  }
+
+  .businesses-page .overview-stat:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .businesses-page .businesses-showcases {
+    gap: 32px;
+    padding: 32px 13px 38px;
+  }
+
+  .businesses-page .business-showcase {
+    grid-template-columns: 1fr;
+    gap: 23px;
+    padding: 25px 19px;
+    border-radius: 14px;
+  }
+
+  /* Match reference ordering on small screens:
+     text first, visuals below */
+  .businesses-page .tech-showcase .showcase-copy {
+    order: 1;
+  }
+
+  .businesses-page .tech-showcase .showcase-visual {
+    order: 2;
+  }
+
+  .businesses-page .code-showcase .showcase-copy {
+    order: 1;
+  }
+
+  .businesses-page .code-showcase .showcase-visual {
+    order: 2;
+  }
+
+  .businesses-page .showcase-title {
+    font-size: clamp(34px, 9vw, 44px);
+  }
+
+  .businesses-page .showcase-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 7px;
+  }
+
+  .businesses-page .showcase-description {
+    font-size: 11px;
+  }
+
+  .businesses-page .service-pill {
+    font-size: 8px;
+  }
+
+  .businesses-page .company-logo-space {
+    height: 50px;
+  }
+
+  .businesses-page .company-website-space {
+    height: 195px;
+  }
+
+  .businesses-page .businesses-closing {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+    min-height: auto;
+    margin: 0 13px 38px;
+    padding: 28px 21px;
+  }
+
+  .businesses-page .businesses-closing h2 {
+    font-size: clamp(27px, 7.5vw, 35px);
+  }
+}
+
+@media (max-width: 390px) {
+  .businesses-page .overview-stat {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .businesses-page .overview-stat strong {
+    font-size: 18px;
+  }
+
+  .businesses-page .overview-stat .endless-stat {
+    font-size: 14px;
+  }
+
+  .businesses-page .company-website-space {
+    height: 165px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .businesses-page *,
+  .businesses-page *::before,
+  .businesses-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* Keep images inside their designated frames */
+.businesses-page .company-website-space {
+  position: relative;
+  height: 235px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.businesses-page .company-website-space img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.businesses-page .company-logo-space img {
+  display: block;
+  max-width: 100%;
+  max-height: 65px;
+  object-fit: contain;
+}
+
+/* Hero image fills its entire frame */
+.businesses-page .hero-photo-space {
+  height: 100%;
+  overflow: hidden;
+}
+
+.businesses-page .hero-photo-space img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+
+@media (max-width: 950px) {
+  .businesses-page .company-website-space {
+    height: 175px;
+  }
+}
+
+@media (max-width: 680px) {
+  .businesses-page .company-website-space {
+    height: 195px;
+  }
+}
+
+@media (max-width: 390px) {
+  .businesses-page .company-website-space {
+    height: 165px;
+  }
+}

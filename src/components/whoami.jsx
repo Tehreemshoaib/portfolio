@@ -54,9 +54,8 @@ const identities = [
     description:
       "Engaging with the business community and supporting collaboration and growth.",
     images: [
-      "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80",
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80",
+      "/fpcci.jpg",
+      "/fpcci3.png",
     ],
   },
 ];

@@ -1,149 +1,305 @@
-const businessSections = [
+import "../components/Businesses.css";
+import {
+  FaArrowRight,
+  FaArrowUpRightFromSquare,
+  FaLightbulb,
+  FaLaptopCode,
+  FaHeadset,
+  FaCode,
+  FaBullhorn,
+  FaCloud,
+  FaGlobe,
+  FaBolt,
+} from "react-icons/fa6";
+
+const businesses = [
   {
+    id: "techsynergy",
+    number: "01",
     name: "TechSynergy",
-    number: "02",
+    category: "TECHNOLOGY & DIGITAL SOLUTIONS",
+    subcategory: "TECHNOLOGIES & DIGITAL",
+    tagline: "Smarter technology. Stronger tomorrow.",
     description:
-      "TechSynergy (Private) Limited is a dedicated technology solutions company focused on delivering high-impact IT products and services across Pakistan’s corporate and public sectors. We offer end-to-end technology solutions designed to help organizations operate smarter, faster, and more efficiently.",
-    image: "/techsynergy.png",
-    imageAlt: "TechSynergy company",
-    imageSide: "right",
-    website: "",
+      "TechSynergy is focused on delivering innovative technology solutions. It helps businesses grow through strategic planning, modern design, and reliable development.",
+    website: "https://techsynergypk.com/",
+    websiteLabel: "Visit TechSynergy",
+    theme: "tech",
+    services: [
+      { icon: FaLightbulb, label: "IT Strategy" },
+      { icon: FaLaptopCode, label: "Web Design" },
+      { icon: FaHeadset, label: "IT Support" },
+    ],
   },
   {
-    name: "CodeNergy FZE",
-    number: "01",
+    id: "codenergy",
+    number: "02",
+    name: "CodeNergy",
+    suffix: "FZE.",
+    category: "DIGITAL SOFTWARE SOLUTIONS",
+    subcategory: "DIGITAL & SOFTWARE",
+    tagline: "Build. Innovate. Grow.",
     description:
-      "Discover Codenergy, its vision, and the work behind the company. This space highlights its identity, purpose, and contribution to the business world.",
-    image: "/codenergy.png",
-    imageAlt: "Codenergy company",
-    imageSide: "left",
-    website: "https://codenergy.ae",
+      "CodeNergy FZE delivers digital solutions, creative design, and strategic marketing to help businesses grow and stand out. We turn ideas into impactful digital experiences.",
+    website: "https://www.codenergy.ae/",
+    websiteLabel: "Visit CodeNergy",
+    theme: "code",
+    services: [
+      { icon: FaCode, label: "Web Development" },
+      { icon: FaCloud, label: "UI/UX Design" },
+      { icon: FaBullhorn, label: "Branding" },
+    ],
   },
 ];
 
 function Businesses() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#232a34] px-6 py-16 text-white sm:px-10 md:py-24 lg:px-16">
-      <div className="mx-auto max-w-7xl">
+    <main className="businesses-page">
+      {/* HERO */}
+      <section className="businesses-hero">
+        <div className="businesses-hero-copy">
+          <span className="business-eyebrow">
+            <i />
+            BEYOND ONE VENTURE
+          </span>
 
-        {/* Introduction */}
-        <section className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-          <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-emerald-400">
-              Beyond One Venture
-            </p>
+          <h1>
+            Our
+            <span>Businesses.</span>
+          </h1>
 
-            <h1 className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Our
-              <span className="text-emerald-400"> Businesses.</span>
-            </h1>
+          <p>
+            A closer look at the businesses associated with
+            Adil Ali, their identities, and the ideas that
+            drive them forward.
+          </p>
 
-            <p className="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
-              A closer look at the businesses associated with Adil Ali,
-              their identities, and the ideas that drive them forward.
-            </p>
+          <a className="business-button" href="#business-portfolio">
+            Explore Businesses <FaArrowRight />
+          </a>
+        </div>
 
-            <a
-              href="#our-businesses"
-              className="mt-8 inline-flex items-center gap-3 rounded-full border border-emerald-400/40 px-6 py-3 font-medium text-emerald-400 transition hover:bg-emerald-400 hover:text-[#232a34]"
+        <div className="businesses-hero-visual">
+  <img
+    src="/business-img.png"
+    alt="CodeNergy and TechSynergy office"
+    className="hero-photo-space"
+  />
+
+  <span className="hero-photo-tag">
+    DUAL VENTURES / HEADQUARTERS
+  </span>
+
+          <div className="hero-photo-caption">
+            <small>COLLABORATIVE ECOSYSTEM</small>
+            <strong>
+              Ideas into <span>Impact.</span>
+            </strong>
+          </div>
+        </div>
+      </section>
+
+      {/* OVERVIEW */}
+      <section className="businesses-overview" id="business-portfolio">
+        <div className="overview-copy">
+          <span className="business-eyebrow">
+            <i />
+            OUR PORTFOLIO
+          </span>
+
+          <h2>
+            Different identities.
+            <span>One vision.</span>
+          </h2>
+
+          <p>
+            Two distinct brands, each with a unique focus, but
+            driven by the same mission — to create digital
+            solutions, build lasting partnerships, and deliver
+            real value.
+          </p>
+        </div>
+
+        <div className="overview-stats">
+          <div className="overview-stat">
+            <span className="stat-icon"><FaLightbulb /></span>
+            <strong>2</strong>
+            <small>Brands</small>
+          </div>
+
+          <div className="overview-stat">
+            <span className="stat-icon"><FaGlobe /></span>
+            <strong>1</strong>
+            <small>Vision</small>
+          </div>
+
+          <div className="overview-stat">
+            <span className="stat-icon"><FaBolt /></span>
+            <strong className="endless-stat">Endless</strong>
+            <small>Possibilities</small>
+          </div>
+        </div>
+      </section>
+
+      {/* COMPANY SHOWCASES */}
+      <section className="businesses-showcases">
+        {businesses.map((business) => {
+          constisTech = business.theme === "tech";
+
+          return (
+            <article
+              key={business.id}
+              id={business.id}
+              className={`business-showcase ${business.theme}-showcase`}
             >
-              Explore Businesses <span>↓</span>
-            </a>
-          </div>
+              {isTech ? (
+                <>
+                  <div className="showcase-copy">
+                    <div className="showcase-meta">
+                      <strong>{business.number}</strong>
+                      <span className="meta-line" />
+                      <span>{business.category}</span>
+                    </div>
 
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-[2rem] bg-emerald-400/[0.08] blur-3xl" />
+                    <p className="showcase-subcategory">
+                      {business.subcategory}
+                    </p>
 
-            <img
-              src="/businesses.jpeg"
-              alt="Business and professional environment"
-              className="relative h-[380px] w-full rounded-3xl object-cover sm:h-[480px] lg:h-[540px]"
-            />
-          </div>
-        </section>
+                    <h2 className="showcase-title">
+                      Tech<span>Synergy</span>.
+                    </h2>
 
-        {/* Business sections */}
-        <section id="our-businesses" className="mt-28 scroll-mt-10 sm:mt-36">
-          <div className="mb-16 max-w-2xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-emerald-400">
-              Our Ventures
-            </p>
+                    <p className="showcase-tagline">
+                      {business.tagline}
+                    </p>
 
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              The Businesses
-              <span className="text-emerald-400"> Behind the Vision.</span>
-            </h2>
+                    <p className="showcase-description">
+                      {business.description}
+                    </p>
 
-            <p className="mt-5 leading-7 text-slate-300">
-              Two companies, each with its own identity and story.
-            </p>
-          </div>
+                    <div className="showcase-services">
+                      {business.services.map((service) => {
+                        const Icon = service.icon;
 
-          <div className="space-y-24 sm:space-y-32">
-            {businessSections.map((business) => (
-              <article
-                key={business.name}
-                className="grid items-center gap-8 md:grid-cols-2 md:gap-16"
-              >
-                
-{/* Image */}
-<div
-  className={
-    business.imageSide === "right"
-      ? "md:order-2"
-      : "md:order-1"
-  }
->
-  <div className="group mx-auto flex h-[280px] w-[280px] items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white p-8 shadow-xl shadow-emerald-400/5 transition duration-500 hover:shadow-emerald-400/15 sm:h-[320px] sm:w-[320px] lg:h-[360px] lg:w-[360px]">
-<img
-  src={business.image}
-  alt={business.imageAlt}
-  loading="lazy"
-  className="h-[90%] w-[90%] object-contain transition duration-500 group-hover:scale-105"
-/>
-  </div>
-</div>
+                        return (
+                          <span className="service-pill" key={service.label}>
+                            <Icon />
+                            {service.label}
+                          </span>
+                        );
+                      })}
+                    </div>
 
-                {/* Description */}
-                <div
-                  className={
-                    business.imageSide === "right"
-                      ? "md:order-1"
-                      : "md:order-2"
-                  }
-                >
-                  <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-emerald-400">
-                    Business {business.number}
-                  </p>
-
-                  <h3 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                    {business.name}
-                    <span className="text-emerald-400">.</span>
-                  </h3>
-
-                  <div className="my-6 h-px w-16 bg-emerald-400" />
-
-                  <p className="max-w-xl text-base leading-8 text-slate-300">
-                    {business.description}
-                  </p>
-
-                  {business.website && (
                     <a
+                      className="showcase-button"
                       href={business.website}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-8 inline-flex items-center gap-3 font-semibold text-emerald-400 transition hover:gap-5"
                     >
-                      Visit Website <span>↗</span>
+                      {business.websiteLabel}
+                      <FaArrowRight />
                     </a>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+                  </div>
 
-      </div>
+                  <div className="showcase-visual tech-visual">
+  <img
+    src="/images/techsynergy-logo.png"
+    alt="TechSynergy Logo"
+    className="company-logo-space object-contain"
+  />
+
+  <img
+    src="/images/techsynergy-website.png"
+    alt="TechSynergy Website"
+    className="company-website-space object-cover object-top"
+  />
+</div>
+                </>
+              ) : (
+                <>
+                  <div className="showcase-visual code-visual">
+                    <div className="company-website-space" />
+                    <div className="company-logo-space" />
+                  </div>
+
+                  <div className="showcase-copy">
+                    <div className="showcase-meta">
+                      <strong>{business.number}</strong>
+                      <span className="meta-line" />
+                      <span>{business.category}</span>
+                    </div>
+
+                    <p className="showcase-subcategory">
+                      {business.subcategory}
+                    </p>
+
+                    <h2 className="showcase-title code-title">
+                      {business.name}
+                      <span>{business.suffix}</span>
+                    </h2>
+
+                    <p className="showcase-tagline">
+                      {business.tagline}
+                    </p>
+
+                    <p className="showcase-description">
+                      {business.description}
+                    </p>
+
+                    <div className="showcase-services">
+                      {business.services.map((service) => {
+                        const Icon = service.icon;
+
+                        return (
+                          <span className="service-pill" key={service.label}>
+                            <Icon />
+                            {service.label}
+                          </span>
+                        );
+                      })}
+                    </div>
+
+                    <a
+                      className="showcase-button"
+                      href={business.website}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {business.websiteLabel}
+                      <FaArrowRight />
+                    </a>
+                  </div>
+                </>
+              )}
+            </article>
+          );
+        })}
+      </section>
+
+      {/* CLOSING */}
+      <section className="businesses-closing">
+        <div className="closing-copy">
+          <span className="business-eyebrow">
+            <i />
+            TWO BRANDS. ONE VISION.
+          </span>
+
+          <h2>
+            Different Ideas. <span>Same Purpose.</span>
+          </h2>
+
+          <p>
+            Together, we build digital experiences that make a
+            difference. Technology. Innovation. Impact.
+          </p>
+        </div>
+
+        <a className="closing-button" href="/">
+          <span><FaArrowRight /></span>
+          Back to Adil Ali's Portfolio
+          <FaArrowUpRightFromSquare className="closing-external-icon" />
+        </a>
+      </section>
     </main>
   );
 }

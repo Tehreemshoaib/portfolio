@@ -18,17 +18,13 @@ function AsAHuman() {
           </h1>
 
           <p className="mb-5 max-w-xl text-base leading-8 text-gray-300 sm:text-lg">
-            Beyond the professional roles and public responsibilities,
-            there is a personal story shaped by values, experiences,
-            relationships, and the lessons learned along the way.
+            What remains when the titles fade, the achievements fall silent, and the world stops watching? 
           </p>
-
           <p className="mb-8 max-w-xl text-base leading-8 text-gray-400">
-            This is a glimpse into the person behind the work —
-            the things that matter, the moments that inspire,
-            and the principles that guide the journey.
+          Just a human being — shaped by experiences, strengthened by challenges, and still discovering the meaning of it all.
+          Beyond business, law, journalism and public life, Adil Ali is someone who believes that life is not measured by success alone, but by the lessons we learn, the connections we build, and the person we become along the way. 
+          Curious by nature and ambitious by spirit, he continues to explore new perspectives, embrace life's uncertainties, and grow through every experience.
           </p>
-
           <a
             href="#personal-story"
             className="inline-flex items-center gap-3 border-b border-emerald-400 pb-2 text-sm font-semibold transition-colors hover:text-emerald-400"
